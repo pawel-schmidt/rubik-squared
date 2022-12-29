@@ -1,0 +1,39 @@
+.board {
+    --block-size: 64px;
+    --bg-color: bisque;
+    position: relative;
+    width: calc(var(--block-size) * 5);
+    height: calc(var(--block-size) * 5);
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    overflow: hidden;
+    border: dashed medium sandybrown;
+    z-index: 0;
+}
+
+.block {
+    position: absolute;
+    width: var(--block-size);
+    height: var(--block-size);
+    transition: 300ms;
+    border-style: solid;
+    border-color: var(--bg-color);
+    border-width: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.block[disabled] {
+    filter: saturate(50%);
+    border-width: 4px;
+    cursor: auto;
+    border-radius: 16px;
+}
+
+.block[data-is-transparent=true] {
+    cursor: auto;
+    border-color: white;
+    border-width: 2px;
+    border-style: dashed;
+    z-index: -1;
+}

@@ -1,3 +1,9 @@
+import { Board } from "./Board";
+
 export const App = () => {
-  return <div>Hello</div>;
+  return (
+    <div>
+      <Board />
+    </div>
+  );
 };
