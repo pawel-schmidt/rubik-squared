@@ -54,6 +54,25 @@ const generateBoardData = (): BoardData => {
     .concat({ x: 4, y: 4, color: Color.TRANSPARENT, id: 24 });
 };
 
+const generateAssignmentData = (): BoardData => {
+  const colors: Color[] = [
+    Color.RED,
+    Color.YELLOW,
+    Color.GREEN,
+    Color.CYAN,
+    Color.BLUE,
+    Color.MAGENTA,
+  ].flatMap((color) => [color, color]);
+
+  const coordinates = Array.from({ length: 9 }, (_, i) => ({
+    x: i % 3,
+    y: Math.floor(i / 3),
+  }));
+
+  return shuffle(coordinates)
+    .map(({ x, y }, i) => ({ id: i, x, y, color: colors[i] }))
+};
+
 const boardDataToString = (boardData: BoardData): string => {
   const colors = boardData.map((block) => {
     switch (block.color) {
